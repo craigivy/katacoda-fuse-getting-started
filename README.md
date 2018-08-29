@@ -2,7 +2,7 @@
 
 This example demonstrates how you can use Apache Camel with Spring Boot.
 
-The quickstart uses Spring Boot to configure a little application that includes a Camel route that triggers a message every 5th second, and routes the message to a log.
+This example create a basic REST api using camel with a hard coded backend.
 
 ### Building
 
@@ -26,10 +26,21 @@ The example can be built and run on OpenShift using a single goal:
 
 ### Accessing the application
 
+Swagger API definition
+
+    curl http://localhost:8080/people-service/api-docs
+
 Listing all the users
 
-    http://localhost:8080/people-service/user/findall
+    curl http://localhost:8080/people-service/user/findall
 
 Accessing a user
  
-    http://localhost:8080/people-service/user/456    
+    curl http://localhost:8080/people-service/user/456    
+
+Create a user
+    curl -X PUT -H "Content-Type: application/json" -d '{"id":"1","name":"Wild Bill Novak"}' http://localhost:8080/people-service/user
+
+Ping
+
+    curl http://localhost:8080/people-service/echo/ping 
